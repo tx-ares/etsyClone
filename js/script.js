@@ -28,17 +28,20 @@ var AllListingsView = Backbone.View.extend({
 
 		var listingsArr = modelArr
 
-		htmlString = '<p> Got sum Dataz1!</p>'
+		htmlString = ''
 
 
 		for(var i = 0; i < listingsArr.length; i++){
 
-		// console.log(listingsArr[i].attributes.Images[0].url_fullxfull)
-
-		var listingImgUrl = listingsArr[i].attributes.Images[0].url_fullxfull
+		console.log(listingsArr[i].attributes.Images[0])
+		console.log(listingsArr[i].attributes)
+		var listingImgUrl = listingsArr[i].attributes.Images[0].url_570xN
+		var listingTitle = listingsArr[i].attributes.title
 
 
 		htmlString += '<div class="listing"><img src="' + listingImgUrl + '">'
+		htmlString += '<p>' + listingTitle + '</p>'
+		// htmlString += '</div>'
 		htmlString += '</div>'
 
 		console.log("Build template fired!")

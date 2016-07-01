@@ -1,8 +1,61 @@
 /* Default Styles */
 * {
 	box-sizing: border-box;
+	font-size: 18px;
 }
 
 body {
-	
+	margin: 0 auto;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+img {
+	width: 100%;
+	overflow: none;
+}
+
+#container {
+	margin: 0 auto;
+	width: 80%;
+}
+
+/* Header Styles */
+header {
+	height: 90px;
+	border-bottom: 4px solid peachpuff;
+}
+
+h1 {
+	display: inline-block;
+	margin: 0 auto;
+	vertical-align: bottom;
+}
+
+button {
+	font-size: .8em;
+}
+
+.search {
+	margin-left: 20%;
+}
+
+input {
+	width: 30%;
+	font-size: .8em;
+	/* box-shadow: 1px 1px 1px 2px slategrey inset; */
+}
+
+/* Listing Styles */
+
+.listing {
+	display: inline-block;
+	width: 30%;
+	overflow: hidden;
+	vertical-align: top;
+	padding: 4px 4%;
+	box-shadow: 5px 5px 5px 5px slategray;
+}
+
+.listingInfo {
+	display: inline-block;
 }
