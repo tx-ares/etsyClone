@@ -38,11 +38,15 @@ var AllListingsView = Backbone.View.extend({
 		var listingImgUrl = listingsArr[i].attributes.Images[0].url_570xN
 		var listingTitle = listingsArr[i].attributes.title
 
+		// Take note of using .get here, refer to my evernote.
+		// <img src={this.props.listingModel.get('Images')[0].url_170x135} />
+        // <h5>{this.props.listingModel.get('title')}</h5>
 
 		htmlString += '<div class="listing"><img src="' + listingImgUrl + '">'
-		htmlString += '<p>' + listingTitle + '</p>'
-		// htmlString += '</div>'
+		htmlString += '<h5>' + listingTitle + '</h5>'
+		htmlString += '<p><button>+</button></p>'
 		htmlString += '</div>'
+
 
 		console.log("Build template fired!")
 		console.log(modelArr)
