@@ -1,3 +1,6 @@
+/* Mobile First Styles */
+/* Media Query Below for Tablet and Desktop */
+
 /* Default Styles */
 * {
 	box-sizing: border-box;
@@ -21,14 +24,19 @@ img {
 
 /* Header Styles */
 header {
-	height: 90px;
+	/* margin: 0;
+	vertical-align: top; */
+	/* background: navajowhite; */
 	border-bottom: 4px solid peachpuff;
 }
 
 h1 {
-	display: inline-block;
-	margin: 0 auto;
-	vertical-align: bottom;
+	/* display: inline-block; */
+	margin: 20px auto;
+	text-align: center;
+	font-size: 1.5em;
+	/* width:10%; */
+	/* vertical-align: bottom; */
 }
 
 button {
@@ -36,24 +44,51 @@ button {
 }
 
 .search {
-	margin-left: 20%;
+	/* display: inline-block; */
+	/* margin-left: 20%; */
+	text-align: center;
+	padding: 0 20px;
 }
 
 input {
-	width: 30%;
+	/* width: 30%; */
 	font-size: .8em;
 	/* box-shadow: 1px 1px 1px 2px slategrey inset; */
+}
+
+.iconBox {
+	/* float: right; */
+	text-align: center;
+	margin: 0 auto;
+	font-size: 1.5em;
+	padding: 20px 20px;
+}
+
+.fa {
+	padding: 0 20px;
+	width: 20%;
+}
+
+.fa:hover {
+	font-size: 1.2em;
+	color: peachpuff;
+	transition: .5s all ease;
 }
 
 /* Listing Styles */
 
 .listing {
-	display: inline-block;
-	width: 30%;
+	/* display: inline-block; */
+	width: 80%;
+	margin: 20px auto;
 	overflow: hidden;
 	vertical-align: top;
 	padding: 4px 4%;
 	box-shadow: 5px 5px 5px 5px slategray;
+}
+
+.listing p {
+	text-align: center;
 }
 
 .listingInfo {

@@ -14,11 +14,12 @@ var AllListingsView = Backbone.View.extend({
 	el: "#container",
 
 	events: {
-		'click .itemContainer': '_navToItem'  
+		'click .listing': '_navToItem'  
 	},
 
 	_navToItem: function(evt){
 
+		console.log(evt)
 		var listingId = evt.currentTarget.getAttribute('id')
 
 		location.hash = 'itemListing/' + listingId
@@ -30,13 +31,10 @@ var AllListingsView = Backbone.View.extend({
 
 		htmlString = ''
 
-
 		for(var i = 0; i < listingsArr.length; i++){
 
-		console.log(listingsArr[i].attributes.Images[0])
-		console.log(listingsArr[i].attributes)
-		var listingImgUrl = listingsArr[i].attributes.Images[0].url_570xN
-		var listingTitle = listingsArr[i].attributes.title
+		var listingImgUrl = listingsArr[i].get('Images')[0].url_570xN
+		var listingTitle = listingsArr[i].get('title')
 
 		// Take note of using .get here, refer to my evernote.
 		// <img src={this.props.listingModel.get('Images')[0].url_170x135} />
@@ -68,6 +66,35 @@ var AllListingsView = Backbone.View.extend({
 
 })
 
+var SingleView = Backbone.View.extend({
+
+	el: "#container",
+
+
+	_buildTemplate: function(mod){
+
+		var singleListing = mod
+
+		htmlString = ''
+
+		htmlString += "<h2> ZAMN BABY!@@!</h2>"
+
+		return htmlString
+	},
+
+	render: function(){
+		console.log("Render fired!")
+		this.el.innerHTML = this._buildTemplate(this.ac.models)
+	},
+
+	initialize: function(allColl){
+		console.log("Collection passed into single View!")
+		this.ac = allColl
+		this.render()
+	}
+
+})
+
 var allListingsCollection = Backbone.Collection.extend({
 
 	url: "https://openapi.etsy.com/v2/listings/active.js",
@@ -77,6 +104,19 @@ var allListingsCollection = Backbone.Collection.extend({
 		console.log(rawJson)
 		return rawJson.results
 	}
+})
+
+var listingModel = Backbone.Model.extend({
+
+	url: "https://openapi.etsy.com/v2/listings/active.js",
+	_key: "k4v6u445o5n237im8b03002u",
+
+	parse: function(rawJson){
+		// console.log(rawJson)
+		return rawJson.results[0]
+	}
+
+
 })
 
 var Router = Backbone.Router.extend({
@@ -104,6 +144,21 @@ var Router = Backbone.Router.extend({
 
 		}).then(function(jsonResp){
 			var allView = new AllListingsView(allColl) 
+		})
+	},
+
+	showItemListing: function() {
+		console.log("Single item route fired!")
+		var listingMod = new listingModel()
+		listingMod.fetch({
+			dataType: 'jsonP',
+			data: {
+				includes: 'Images, Shop',
+				api_key: listingMod._key
+			}
+
+		}).then(function(jsonResp){
+			var singleView = new SingleView(listingMod)
 		})
 	},
 
