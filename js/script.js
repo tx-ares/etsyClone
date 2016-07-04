@@ -19,8 +19,9 @@ var AllListingsView = Backbone.View.extend({
 
 	_navToItem: function(evt){
 
-		console.log(evt)
+		// console.log(evt)
 		var listingId = evt.currentTarget.getAttribute('id')
+		console.log(listingId, "<<<<<< listingId is ")
 
 		location.hash = 'itemListing/' + listingId
 	},
@@ -83,13 +84,14 @@ var SingleView = Backbone.View.extend({
 	},
 
 	render: function(){
-		console.log("Render fired!")
+		console.log("Single Render fired!")
 		this.el.innerHTML = this._buildTemplate(this.ac.models)
 	},
 
 	initialize: function(allColl){
 		console.log("Collection passed into single View!")
 		this.ac = allColl
+		console.log(this.ac)
 		this.render()
 	}
 
@@ -108,12 +110,17 @@ var allListingsCollection = Backbone.Collection.extend({
 
 var listingModel = Backbone.Model.extend({
 
-	url: "https://openapi.etsy.com/v2/listings/active.js",
+	url: "https://openapi.etsy.com/v2/listings/" + this.itemId + ".js",
 	_key: "k4v6u445o5n237im8b03002u",
 
 	parse: function(rawJson){
 		// console.log(rawJson)
 		return rawJson.results[0]
+	},
+
+	initialize: function(listingId) {
+		this.itemId = listingId
+		console.log(this.itemId, "<<<< Listing Model fired!")
 	}
 
 
