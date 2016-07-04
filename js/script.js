@@ -41,7 +41,7 @@ var AllListingsView = Backbone.View.extend({
 		// <img src={this.props.listingModel.get('Images')[0].url_170x135} />
         // <h5>{this.props.listingModel.get('title')}</h5>
 
-		htmlString += '<div class="listing"><img src="' + listingImgUrl + '">'
+		htmlString += '<div class="listing" id=' + listingsArr[i].get('listing_id') + '><img src="' + listingImgUrl + '">'
 		htmlString += '<h5>' + listingTitle + '</h5>'
 		htmlString += '<p><button>+</button></p>'
 		htmlString += '</div>'
@@ -151,21 +151,25 @@ var Router = Backbone.Router.extend({
 
 		}).then(function(jsonResp){
 			var allView = new AllListingsView(allColl) 
+			// this.render()
 		})
 	},
 
-	showItemListing: function() {
+	showItemListing: function(itemId) {
+		console.log(itemId, "<<<<< itemId is ")
 		console.log("Single item route fired!")
-		var listingMod = new listingModel()
+		var listingMod = new listingModel(itemId)
 		listingMod.fetch({
 			dataType: 'jsonP',
 			data: {
 				includes: 'Images, Shop',
-				api_key: listingMod._key
+				api_key: listingMod._key,
+				listing_id: itemId
 			}
 
 		}).then(function(jsonResp){
 			var singleView = new SingleView(listingMod)
+			// this.render()
 		})
 	},
 
