@@ -78,7 +78,7 @@ var SingleView = Backbone.View.extend({
 
 		htmlString = ''
 
-		htmlString += "<h2> ZAMN BABY!@@!</h2>"
+		htmlString += "<h2> ZAMN BABY!@@!!</h2>"
 
 		return htmlString
 	},

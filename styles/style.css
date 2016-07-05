@@ -14,7 +14,7 @@ body {
 
 img {
 	width: 100%;
-	overflow: none;
+	overflow: hidden;
 }
 
 #container {
@@ -22,11 +22,12 @@ img {
 	width: 80%;
 }
 
+a {
+	text-decoration: none;
+}
+
 /* Header Styles */
 header {
-	/* margin: 0;
-	vertical-align: top; */
-	/* background: navajowhite; */
 	border-bottom: 4px solid peachpuff;
 }
 
@@ -57,7 +58,6 @@ input {
 }
 
 .iconBox {
-	/* float: right; */
 	text-align: center;
 	margin: 0 auto;
 	font-size: 1.5em;
@@ -78,7 +78,6 @@ input {
 /* Listing Styles */
 
 .listing {
-	/* display: inline-block; */
 	width: 80%;
 	margin: 20px auto;
 	overflow: hidden;
