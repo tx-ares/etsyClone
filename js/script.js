@@ -72,10 +72,12 @@ var SingleView = Backbone.View.extend({
 	el: "#container",
 
 
-	_buildTemplate: function(mod){
+	_buildTemplate: function(listingMod){
 
-		var singleListing = mod
+		var singleListing = listingMod
 
+		console.log(singleListing)
+		
 		htmlString = ''
 
 		htmlString += "<h2> ZAMN BABY!@@!!</h2>"
@@ -85,13 +87,16 @@ var SingleView = Backbone.View.extend({
 
 	render: function(){
 		console.log("Single Render fired!")
-		this.el.innerHTML = this._buildTemplate(this.ac.models)
+		this.el.innerHTML = this._buildTemplate(this.listMod)
 	},
 
-	initialize: function(allColl){
-		console.log("Collection passed into single View!")
-		this.ac = allColl
-		console.log(this.ac)
+	initialize: function(listingMod){
+		this.listMod = listingMod
+		
+
+		// console.log("Collection passed into single View!")
+		// this.ac = allColl
+		// console.log(this.ac)
 		this.render()
 	}
 
