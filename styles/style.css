@@ -32,12 +32,10 @@ header {
 }
 
 h1 {
-	/* display: inline-block; */
 	margin: 20px auto;
 	text-align: center;
 	font-size: 1.5em;
-	/* width:10%; */
-	/* vertical-align: bottom; */
+
 }
 
 button {
@@ -45,16 +43,12 @@ button {
 }
 
 .search {
-	/* display: inline-block; */
-	/* margin-left: 20%; */
 	text-align: center;
 	padding: 0 20px;
 }
 
 input {
-	/* width: 30%; */
 	font-size: .8em;
-	/* box-shadow: 1px 1px 1px 2px slategrey inset; */
 }
 
 .iconBox {
