@@ -24,7 +24,13 @@ img {
 
 a {
 	text-decoration: none;
+	font-size: 1em;
 }
+
+a:visited {
+	color: black;
+	} 
+
 
 /* Header Styles */
 header {
