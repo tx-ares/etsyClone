@@ -9,6 +9,7 @@
 console.log("Hello wurld!")
 console.log($)
 
+
 var AllListingsView = Backbone.View.extend({
 
 	el: "#container",
@@ -38,8 +39,8 @@ var AllListingsView = Backbone.View.extend({
 		var listingTitle = listingsArr[i].get('title')
 
 		// Take note of using .get here, refer to my evernote.
-		// <img src={this.props.listingModel.get('Images')[0].url_170x135} />
-        // <h5>{this.props.listingModel.get('title')}</h5>
+		// <img src={this.props.ListingModel.get('Images')[0].url_170x135} />
+        // <h5>{this.props.ListingModel.get('title')}</h5>
 
 		htmlString += '<div class="listing" id=' + listingsArr[i].get('listing_id') + '><img src="' + listingImgUrl + '">'
 		htmlString += '<h5>' + listingTitle + '</h5>'
@@ -76,11 +77,12 @@ var SingleView = Backbone.View.extend({
 
 		var singleListing = listingMod
 
-		console.log(singleListing)
+		console.log(singleListing.get('Images')[0].url_570xN)
 		
 		htmlString = ''
 
-		htmlString += "<h2> ZAMN BABY!@@!!</h2>"
+		htmlString += "<div class='listing'><img src=" + singleListing.get('Images')[0].url_570xN + "></div>"
+
 
 		return htmlString
 	},
@@ -102,7 +104,7 @@ var SingleView = Backbone.View.extend({
 
 })
 
-var allListingsCollection = Backbone.Collection.extend({
+var AllListingsCollection = Backbone.Collection.extend({
 
 	url: "https://openapi.etsy.com/v2/listings/active.js",
 	_key: "k4v6u445o5n237im8b03002u",
@@ -113,19 +115,22 @@ var allListingsCollection = Backbone.Collection.extend({
 	}
 })
 
-var listingModel = Backbone.Model.extend({
+var ListingModel = Backbone.Model.extend({
 
-	url: "https://openapi.etsy.com/v2/listings/" + this.itemId + ".js",
+	url: function() {
+		return "https://openapi.etsy.com/v2/listings/" + this.listingId + ".js"
+	},
+
 	_key: "k4v6u445o5n237im8b03002u",
 
 	parse: function(rawJson){
-		// console.log(rawJson)
+
 		return rawJson.results[0]
 	},
 
 	initialize: function(listingId) {
-		this.itemId = listingId
-		console.log(this.itemId, "<<<< Listing Model fired!")
+		this.listingId = listingId
+		console.log(this.listingId, "<<<< Listing Model fired!")
 	}
 
 
@@ -146,7 +151,7 @@ var Router = Backbone.Router.extend({
 
 	showAllListings: function() {
 		console.log("Routed to showAllListings")
-		var allColl = new allListingsCollection()
+		var allColl = new AllListingsCollection()
 		allColl.fetch({
 			dataType: 'jsonP',
 			data: {
@@ -160,16 +165,16 @@ var Router = Backbone.Router.extend({
 		})
 	},
 
-	showItemListing: function(itemId) {
-		console.log(itemId, "<<<<< itemId is ")
+	showItemListing: function(listingId) {
+		console.log(listingId, "<<<<< listingId is ")
 		console.log("Single item route fired!")
-		var listingMod = new listingModel(itemId)
+		var listingMod = new ListingModel(listingId)
 		listingMod.fetch({
 			dataType: 'jsonP',
 			data: {
 				includes: 'Images, Shop',
 				api_key: listingMod._key,
-				listing_id: itemId
+				listing_id: listingId
 			}
 
 		}).then(function(jsonResp){
@@ -178,11 +183,37 @@ var Router = Backbone.Router.extend({
 		})
 	},
 
+	showSearchResults: function(keywords) {
+		var searchColl = new AllListingsCollection()
+		searchColl.fetch({
+			dataType: 'jsonp',
+			data: {
+				api_key: searchColl._key,
+				includes: "Images,Shop",
+				keywords: keywords
+			}
+		})
+
+		var allView = new AllListingsView(searchColl)
+	},
+
 	initialize: function() {
 		console.log("Initialize fired!")
 		Backbone.history.start()
 	}
 
 })
+
+var searchEnter = function(eventObj){
+	// console.log(eventObj)
+	if(eventObj.keyCode === 13) {
+		console.log(eventObj.target.value)
+		location.hash = "search/" + eventObj.target.value
+		eventObj.target.value = ''
+	}
+}
+
+document.querySelector(".searchBar").addEventListener('keydown', searchEnter)
+// document.querySelector("header #search button").addEventListener('click', clickTrigger)
 
 var rtr = new Router()

@@ -75,7 +75,19 @@ input {
 	transition: .5s all ease;
 }
 
-/* Listing Styles */
+/* Grid Listing Styles */
+/* .grid {
+	display: inline-block;
+	width: 15%;
+	margin: 0px auto;
+	overflow: hidden;
+	vertical-align: top;
+	padding: 4px 4%;
+	box-shadow: 5px 5px 5px 5px slategray;
+
+} */
+
+/* Single Listing Styles */
 
 .listing {
 	width: 80%;
