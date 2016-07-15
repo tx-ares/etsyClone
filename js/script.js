@@ -87,7 +87,10 @@ var SingleView = Backbone.View.extend({
 		return htmlString
 	},
 
-	render: function(){
+	render: function(err){
+		if (err){
+			console.log("No search results found, please try again.")
+		}
 		console.log("Single Render fired!")
 		this.el.innerHTML = this._buildTemplate(this.listMod)
 	},
@@ -192,9 +195,11 @@ var Router = Backbone.Router.extend({
 				includes: "Images,Shop",
 				keywords: keywords
 			}
+		}).then(function() {
+			var allView = new AllListingsView(searchColl)
+
 		})
 
-		var allView = new AllListingsView(searchColl)
 	},
 
 	initialize: function() {
