@@ -159,7 +159,8 @@ var Router = Backbone.Router.extend({
 			dataType: 'jsonP',
 			data: {
 				includes: 'Images, Shop',
-				api_key: allColl._key
+				api_key: allColl._key,
+				keywords: 'rock music'
 			}
 
 		}).then(function(jsonResp){
