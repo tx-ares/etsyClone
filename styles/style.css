@@ -39,6 +39,11 @@ a {
     font-size: 1em;
 }
 
+a:hover {
+    color: #83c7b7;
+    transition: .5s all ease;
+}
+
 a:visited {
     color: white;
 }
@@ -53,18 +58,14 @@ header {
 }
 
 h1 {
-    margin: 20px auto;
+    display: inline-block;
     text-align: center;
     font-size: 1.5em;
+    margin-left: 15%;
 }
 
 button {
     font-size: .8em;
-}
-
-.search {
-    text-align: center;
-    padding: 0 20px;
 }
 
 input {
@@ -72,19 +73,21 @@ input {
 }
 
 .iconBox {
-    text-align: center;
-    margin: 0 auto;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
     font-size: 1.5em;
-    padding: 20px 20px;
+    padding: 20px 20px 0px 0px;
 }
 
 .fa {
-    padding: 0 20px;
+    padding: 0 11px;
     width: 20%;
 }
 
 .fa:hover {
-    /* font-size: 1.2em; */
     color: #83c7b7;
     transition: .5s all ease;
 }
@@ -100,7 +103,7 @@ nav {
     overflow: hidden;
     border-bottom: 2px solid darkslategray;
     margin-top: 20px;
-    /* padding: 5px 0; */
+    text-align: center;
 }
 
 ul {
@@ -139,22 +142,26 @@ input.hamburguesa-menu-toggler:checked + nav {
     max-height: 1000px;
 }
 
-.links .quickLinks li {
+/* .links .quickLinks li {
     text-decoration: none;
-}
+} */
 
 
 /* Main Image Styles */
 
 .mainImg {
-    box-shadow: 5px 0 0 0 inset;
-    box-shadow: inset 0px 34px 28px -20px rgba(0, 0, 0, 0.37);
+    background-image: url('images/AsILayDyingwallpaper.jpg');
 }
 
 .headlineImg {
     width: 100%;
-    /* 	padding: 30px 2% 0 2%;
-	margin-top: 10px; */
+}
+
+.search {
+    text-align: center;
+    height: 40px;
+    padding: 6px;
+    background-color: rgba(20, 20, 20, .8);
 }
 
 
@@ -168,7 +175,6 @@ input.hamburguesa-menu-toggler:checked + nav {
     overflow: hidden;
     vertical-align: top;
     padding: 4px 4%;
-    /* box-shadow: 5px 5px 5px 5px slategray; */
 }
 
 .listing p {
@@ -179,19 +185,50 @@ input.hamburguesa-menu-toggler:checked + nav {
     display: inline-block;
 }
 
-@media only screen and (min-width: 500px) {
+
+/***************************/
+
+
+/* MEDIA QUERIES TAB SIZE */
+
+
+/***************************/
+
+
+/* @media only screen and (max-width: 710px) {
+	.iconBox {
+
+        position: absolute;
+        width: 50%;
+        top: 0;
+        right: 0;
+    }
+
+} */
+
+
+/***************************/
+
+
+/* MEDIA QUERIES FULL SIZE */
+
+
+/***************************/
+
+@media only screen and (min-width: 670px) {
     .hamburguesa {
         display: none;
     }
     .iconBox {
-        position: absolute;
-        width: 20%;
-        top: 0;
-        right: 0;
+        display: inline-block;
+        text-align: right;
+        width: 30%;
+        font-size: 1.5em;
+        padding: 20px 10px 0px 0px;
     }
-    .fa {
-        /* padding: 0 10px; */
-        width: 25%;
+    h1 {
+        text-align: left;
+        margin-left: 10%;
     }
     ul {
         list-style-type: none;
@@ -206,25 +243,24 @@ input.hamburguesa-menu-toggler:checked + nav {
     }
     li {
         display: inline-block;
-        padding: 10px 2%;
-        margin: 0 auto;
+        padding: 0px 1%;
+        /* margin: 0 auto; */
         vertical-align: middle;
         text-decoration: none;
     }
     .links .quickLinks li {
         display: inline-block;
+        margin-right: 10%;
     }
     .listing {
         display: inline-block;
         width: 20%;
-        /* max-height: 300px; */
         background: white;
         color: slategray;
         margin: 20px 2%;
         overflow: hidden;
         vertical-align: top;
         padding: 4px 4%;
-        /* box-shadow: 5px 5px 5px 5px slategray; */
     }
     .listing p {
         text-align: center;
