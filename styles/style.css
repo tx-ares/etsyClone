@@ -34,6 +34,12 @@ img {
     width: 80%;
 }
 
+button {
+	background: #83c7b7;
+	border-radius:0px 10px 10px 0px;
+	text-align: right;
+}
+
 a {
     text-decoration: none;
     font-size: 1em;
@@ -65,11 +71,14 @@ h1 {
 }
 
 button {
-    font-size: .8em;
+    font-size: 14px;
+    margin:0;
 }
 
 input {
-    font-size: .8em;
+    font-size: 14px;
+    margin:0;
+    height: 25px;
 }
 
 .iconBox {
