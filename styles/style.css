@@ -49,15 +49,13 @@ img {
 a {
     text-decoration: none;
     font-size: 1em;
+ 	color: white;
 }
+
 
 a:hover {
     color: #83c7b7;
     transition: .5s all ease;
-}
-
-a:visited {
-    color: white;
 }
 
 
@@ -162,10 +160,6 @@ input.hamburguesa-menu-toggler:checked + nav {
     max-height: 1000px;
 }
 
-/* .links .quickLinks li {
-    text-decoration: none;
-} */
-
 
 /* Main Image Styles */
 
@@ -187,16 +181,20 @@ input.hamburguesa-menu-toggler:checked + nav {
 
 /* Single Listing Styles */
 
-.listing {
+.listing .singleListing {
     width: 80%;
     background: white;
     color: slategray;
     margin: 20px auto;
-    /* height: 1000px; */
     overflow: scroll;
     vertical-align: top;
+    border-radius: 5px;
     padding: 4px 4%;
+    border: 8px solid #83c7b7;
+    border-radius: 5px 5px 5px 5px;
 }
+
+
 .listing p {
     text-align: center;
     vertical-align: middle;
@@ -215,39 +213,21 @@ input.hamburguesa-menu-toggler:checked + nav {
 .listing .price{
 	float: right;
 	color: #52b29b;
-	/* padding-left: 1%; */
 }
 
 .listing .description{
-	/* overflow: scroll; */
 	font-size: 14px;
-	/* color: tomato; */
 }
 
 .listingInfo {
     display: inline-block;
 }
 
-
-/***************************/
-
-
-/* MEDIA QUERIES TAB SIZE */
-
-
-/***************************/
-
-
-/* @media only screen and (max-width: 710px) {
-	.iconBox {
-
-        position: absolute;
-        width: 50%;
-        top: 0;
-        right: 0;
+footer li h5{
+    border-top: 2px solid slategray;
+    width: 80%;	
+    margin: 20px auto;
     }
-
-} */
 
 
 /***************************/
@@ -274,9 +254,7 @@ input.hamburguesa-menu-toggler:checked + nav {
         margin-left: 10%;
     }
     ul {
-        list-style-type: none;
         margin: 0 auto;
-        overflow: hidden;
         width: 100%;
         text-align: center;
     }
@@ -287,13 +265,9 @@ input.hamburguesa-menu-toggler:checked + nav {
     li {
         display: inline-block;
         padding: 0px 1%;
-        /* margin: 0 auto; */
+        margin: 0 auto;
         vertical-align: middle;
         text-decoration: none;
-    }
-    .links .quickLinks li {
-        display: inline-block;
-        margin-right: 10%;
     }
     .listing {
         display: inline-block;
@@ -303,11 +277,15 @@ input.hamburguesa-menu-toggler:checked + nav {
         margin: 20px 2%;
         overflow: hidden;
         vertical-align: top;
-        padding: 4px 4%;
+        padding: 20px 4%;
+
+        border: 4px solid #83c7b7;
+    	border-radius: 5px 5px 5px 5px;
     }
     .singleListing {
     	width: 100%;
     	height: 1000px;
+    	margin: 40px 0;
     	overflow: scroll;
     }
     .listing p {
@@ -316,8 +294,21 @@ input.hamburguesa-menu-toggler:checked + nav {
     .listingInfo {
         display: inline-block;
     }
-    footer {
-    	margin: 20px auto;
-    	font-size: 14px;
+    footer li h5{
+    border-top: none;
+    width: 80%;	
+    margin: 20px auto;
     }
+    footer {
+    margin: 20px auto;
+    width: 80%;
+    border-top: 2px solid #83c7b7;
+    }
+    .finePrint {
+    	font-size: 12px;
+    }
+    /* imgContainer{
+    	border: 8px solid #83c7b7;
+    	border-radius: 5px 5px 5px 5px;
+    } */
 }

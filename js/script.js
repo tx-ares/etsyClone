@@ -20,7 +20,6 @@ var AllListingsView = Backbone.View.extend({
 
 	_navToItem: function(evt){
 
-		// console.log(evt)
 		var listingId = evt.currentTarget.getAttribute('id')
 		console.log(listingId, "<<<<<< listingId is ")
 
@@ -47,7 +46,6 @@ var AllListingsView = Backbone.View.extend({
 		htmlString += '<h5>' + listingTitle + '</h5>'
 		htmlString += '<p class="style">' + listingsArr[i].get('tags')[0] + ', ' + listingsArr[i].get('tags')[1] + '</p>'
 		htmlString += '<button class="plus">+</button><p class="price">$' + listingsArr[i].get('price') + '</p>'
-		// htmlString += '<p></p>'
 		htmlString += '</div>'
 
 
@@ -79,11 +77,9 @@ var SingleView = Backbone.View.extend({
 	_buildTemplate: function(listingMod){
 
 		var singleListing = listingMod
-		// listingsArr[i].get('title')
 
-
-		console.log(singleListing.get('Images')[0].url_570xN)
-		console.log(singleListing)
+		// console.log(singleListing.get('Images')[0].url_570xN)
+		// console.log(singleListing)
 
 		htmlString = ''
 
@@ -91,7 +87,6 @@ var SingleView = Backbone.View.extend({
 		htmlString += "<h5>" + singleListing.get('title') + "</h5>"
 		htmlString += '<p class="style">' + singleListing.get('tags')[0] + ', ' + singleListing.get('tags')[1] + ' <span class="price">$' + singleListing.get('price') +'</span></p>'
 		htmlString += '<p class="description">' + singleListing.get('description') + '</p>'
-		// htmlString += '<p class="price">$' + singleListing.get('price') + '</p>'
 		htmlString += "</div>"
 
 		return htmlString
@@ -221,7 +216,6 @@ var Router = Backbone.Router.extend({
 })
 
 var searchEnter = function(eventObj){
-	// console.log(eventObj)
 	if(eventObj.keyCode === 13) {
 		console.log(eventObj.target.value)
 		location.hash = "search/" + eventObj.target.value
@@ -230,6 +224,5 @@ var searchEnter = function(eventObj){
 }
 
 document.querySelector(".searchBar").addEventListener('keydown', searchEnter)
-// document.querySelector("header #search button").addEventListener('click', clickTrigger)
 
 var rtr = new Router()
