@@ -34,10 +34,14 @@ img {
     width: 80%;
 }
 
-button {
-	background: #83c7b7;
+.searchButton {
+	padding: 4px;
+    font-size: 14px;
+    background: #83c7b7;
 	border-radius:0px 10px 10px 0px;
 	text-align: right;
+	border: none;
+	color: white;
 }
 
 a {
@@ -71,11 +75,18 @@ h1 {
 }
 
 button {
+	padding: 4px;
     font-size: 14px;
+    background: #83c7b7;
+	border-radius:10px 10px 10px 10px;
+	text-align: right;
+	border: none;
+	color: white;
 }
 
 input {
     font-size: 14px;
+    padding: 2px;
 }
 
 .iconBox {
@@ -115,6 +126,7 @@ nav {
 ul {
     list-style-type: none;
     margin: 20px auto 0;
+    padding: 0;
     overflow: hidden;
     width: 100%;
     text-align: center;
@@ -135,8 +147,8 @@ input.hamburguesa-menu-toggler {
 }
 
 .hamburguesa > hr {
-    width: 90%;
-    margin: 5px 0;
+    width: 20%;
+    margin: 5px auto;
 }
 
 input.hamburguesa-menu-toggler {

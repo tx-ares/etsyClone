@@ -44,6 +44,7 @@ var AllListingsView = Backbone.View.extend({
 
 		htmlString += '<div class="listing" id=' + listingsArr[i].get('listing_id') + '><img src="' + listingImgUrl + '">'
 		htmlString += '<h5>' + listingTitle + '</h5>'
+		// htmlString += '<p>' + listingsArr[i].get('style')[0] + ',' + listingsArr[i].get('style')[1] + '</p>'
 		htmlString += '<p><button>+</button></p>'
 		htmlString += '</div>'
 
@@ -76,13 +77,17 @@ var SingleView = Backbone.View.extend({
 	_buildTemplate: function(listingMod){
 
 		var singleListing = listingMod
+		// listingsArr[i].get('title')
+
 
 		console.log(singleListing.get('Images')[0].url_570xN)
-		
+		console.log(singleListing)
+
 		htmlString = ''
 
-		htmlString += "<div class='listing'><img src=" + singleListing.get('Images')[0].url_570xN + "></div>"
-
+		htmlString += "<div class='listing'><img src=" + singleListing.get('Images')[0].url_570xN + ">"
+		htmlString += "<h5>" + singleListing.get('title') + "</h5>"
+		htmlString += "</div>"
 
 		return htmlString
 	},
