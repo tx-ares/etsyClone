@@ -181,7 +181,7 @@ input.hamburguesa-menu-toggler:checked + nav {
 
 /* Single Listing Styles */
 
-.listing .singleListing {
+.listing{
     width: 80%;
     background: white;
     color: slategray;
