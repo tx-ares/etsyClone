@@ -32,6 +32,8 @@ img {
 #container {
     margin: 0 auto;
     width: 80%;
+    height: 80%;
+    overflow: scroll;
 }
 
 .searchButton {
@@ -190,13 +192,36 @@ input.hamburguesa-menu-toggler:checked + nav {
     background: white;
     color: slategray;
     margin: 20px auto;
-    overflow: hidden;
+    /* height: 1000px; */
+    overflow: scroll;
     vertical-align: top;
     padding: 4px 4%;
 }
-
 .listing p {
     text-align: center;
+    vertical-align: middle;
+}
+.listing .plus{
+	margin: 17px auto;
+}
+
+.listing .style{
+	text-align: left;
+	font-size: 14px;
+	border-bottom: 2px solid slategray;
+	padding: 20px 0;
+}
+
+.listing .price{
+	float: right;
+	color: #52b29b;
+	/* padding-left: 1%; */
+}
+
+.listing .description{
+	/* overflow: scroll; */
+	font-size: 14px;
+	/* color: tomato; */
 }
 
 .listingInfo {
@@ -280,10 +305,19 @@ input.hamburguesa-menu-toggler:checked + nav {
         vertical-align: top;
         padding: 4px 4%;
     }
+    .singleListing {
+    	width: 100%;
+    	height: 1000px;
+    	overflow: scroll;
+    }
     .listing p {
         text-align: center;
     }
     .listingInfo {
         display: inline-block;
+    }
+    footer {
+    	margin: 20px auto;
+    	font-size: 14px;
     }
 }

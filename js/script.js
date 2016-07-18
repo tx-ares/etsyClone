@@ -38,14 +38,16 @@ var AllListingsView = Backbone.View.extend({
 		var listingImgUrl = listingsArr[i].get('Images')[0].url_570xN
 		var listingTitle = listingsArr[i].get('title')
 
+
 		// Take note of using .get here, refer to my evernote.
 		// <img src={this.props.ListingModel.get('Images')[0].url_170x135} />
         // <h5>{this.props.ListingModel.get('title')}</h5>
 
 		htmlString += '<div class="listing" id=' + listingsArr[i].get('listing_id') + '><img src="' + listingImgUrl + '">'
 		htmlString += '<h5>' + listingTitle + '</h5>'
-		// htmlString += '<p>' + listingsArr[i].get('style')[0] + ',' + listingsArr[i].get('style')[1] + '</p>'
-		htmlString += '<p><button>+</button></p>'
+		htmlString += '<p class="style">' + listingsArr[i].get('tags')[0] + ', ' + listingsArr[i].get('tags')[1] + '</p>'
+		htmlString += '<button class="plus">+</button><p class="price">$' + listingsArr[i].get('price') + '</p>'
+		// htmlString += '<p></p>'
 		htmlString += '</div>'
 
 
@@ -85,8 +87,11 @@ var SingleView = Backbone.View.extend({
 
 		htmlString = ''
 
-		htmlString += "<div class='listing'><img src=" + singleListing.get('Images')[0].url_570xN + ">"
+		htmlString += "<div class='listing singleListing'><img src=" + singleListing.get('Images')[0].url_570xN + ">"
 		htmlString += "<h5>" + singleListing.get('title') + "</h5>"
+		htmlString += '<p class="style">' + singleListing.get('tags')[0] + ', ' + singleListing.get('tags')[1] + ' <span class="price">$' + singleListing.get('price') +'</span></p>'
+		htmlString += '<p class="description">' + singleListing.get('description') + '</p>'
+		// htmlString += '<p class="price">$' + singleListing.get('price') + '</p>'
 		htmlString += "</div>"
 
 		return htmlString
